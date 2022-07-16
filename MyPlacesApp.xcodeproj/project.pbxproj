@@ -15,6 +15,7 @@
 		E9AA4EA92880874F0068FC2F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA4EA82880874F0068FC2F /* TableViewController.swift */; };
 		E9AA4EAC2882A1CF0068FC2F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E9AA4EAB2882A1CF0068FC2F /* .gitignore */; };
 		E9AA4EAE2882AAC00068FC2F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA4EAD2882AAC00068FC2F /* CustomCell.swift */; };
+		E9AA4EB02882B7BD0068FC2F /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA4EAF2882B7BD0068FC2F /* PlaceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E9AA4EA82880874F0068FC2F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		E9AA4EAB2882A1CF0068FC2F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E9AA4EAD2882AAC00068FC2F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		E9AA4EAF2882B7BD0068FC2F /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			children = (
 				E9AA4E94288082210068FC2F /* AppDelegate.swift */,
 				E9AA4EA82880874F0068FC2F /* TableViewController.swift */,
+				E9AA4EAF2882B7BD0068FC2F /* PlaceModel.swift */,
 				E9AA4EAD2882AAC00068FC2F /* CustomCell.swift */,
 				E9AA4E96288082210068FC2F /* SceneDelegate.swift */,
 				E9AA4E9A288082210068FC2F /* Main.storyboard */,
@@ -147,6 +150,7 @@
 			files = (
 				E9AA4E95288082210068FC2F /* AppDelegate.swift in Sources */,
 				E9AA4EA92880874F0068FC2F /* TableViewController.swift in Sources */,
+				E9AA4EB02882B7BD0068FC2F /* PlaceModel.swift in Sources */,
 				E9AA4EAE2882AAC00068FC2F /* CustomCell.swift in Sources */,
 				E9AA4E97288082210068FC2F /* SceneDelegate.swift in Sources */,
 			);
