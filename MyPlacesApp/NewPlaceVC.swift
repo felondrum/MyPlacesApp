@@ -9,7 +9,7 @@ import UIKit
 
 class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
     
-    var newPlace: Place?
+    
     var isChangedImage = false
     
     @IBOutlet weak var placeImage: UIImageView!
@@ -63,6 +63,8 @@ class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
     }
     
     func savePlace() {
+        
+        
         var image: UIImage?
         
         if isChangedImage {
@@ -70,10 +72,16 @@ class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
         } else {
             image = #imageLiteral(resourceName: "imagePlaceholder")
         }
+        let imageDateConv = image?.pngData()
         
-        newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, image: image, restorantImage: nil)
+        let newPlace = Place(name: placeName.text!,
+                             location: placeLocation.text,
+                             type: placeType.text,
+                             imageData: imageDateConv)
+        StorageManager.savePlace(newPlace)
+        
     }
-     
+    
 }
 
 // MARK: Text field deligate
