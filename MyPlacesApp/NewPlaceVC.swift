@@ -9,7 +9,7 @@ import UIKit
 
 class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
     
-    var currentPlace: Place?
+    var currentPlace: Place!
     var isChangedImage = false
     
     @IBOutlet weak var placeImage: UIImageView!
@@ -17,6 +17,8 @@ class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
     @IBOutlet weak var placeName: UITextField!
     @IBOutlet weak var placeLocation: UITextField!
     @IBOutlet weak var placeType: UITextField!
+    
+    @IBOutlet weak var ratingControl: RatingControl!
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
@@ -66,7 +68,7 @@ class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
     }
     
     func savePlace() {
-    
+        
         var image: UIImage?
         
         if isChangedImage {
@@ -79,13 +81,15 @@ class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
         let newPlace = Place(name: placeName.text!,
                              location: placeLocation.text,
                              type: placeType.text,
-                             imageData: imageDateConv)
+                             imageData: imageDateConv,
+                             rating: Double(ratingControl.rating))
         if currentPlace != nil {
             try! realm.write {
                 currentPlace?.name = newPlace.name
                 currentPlace?.location = newPlace.location
                 currentPlace?.type = newPlace.type
                 currentPlace?.imageData = newPlace.imageData
+                currentPlace?.rating = newPlace.rating
             }
         } else {
             StorageManager.savePlace(newPlace)
@@ -102,6 +106,7 @@ class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeType.text = currentPlace?.type
+            ratingControl.rating = Int(currentPlace.rating)
             
         }
     }

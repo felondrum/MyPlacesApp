@@ -11,12 +11,12 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let schemaVersionConst: UInt64 = 2
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let config = Realm.Configuration(schemaVersion: 1) { migration, oldSchemaVersion in
-            if oldSchemaVersion < 1 {
+        let config = Realm.Configuration(schemaVersion: schemaVersionConst) { migration, oldSchemaVersion in
+            if oldSchemaVersion < self.schemaVersionConst {
                 
             }
         }
