@@ -9,7 +9,7 @@ import UIKit
 
 class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
     
-    
+    var currentPlace: Place?
     var isChangedImage = false
     
     @IBOutlet weak var placeImage: UIImageView!
@@ -28,6 +28,7 @@ class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
         saveButton.isEnabled = false
         
         placeName.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
+        setUpEditScreen()
     }
     
     
@@ -63,8 +64,7 @@ class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
     }
     
     func savePlace() {
-        
-        
+    
         var image: UIImage?
         
         if isChangedImage {
@@ -78,11 +78,43 @@ class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
                              location: placeLocation.text,
                              type: placeType.text,
                              imageData: imageDateConv)
-        StorageManager.savePlace(newPlace)
-        
+        if currentPlace != nil {
+            try! realm.write {
+                currentPlace?.name = newPlace.name
+                currentPlace?.location = newPlace.location
+                currentPlace?.type = newPlace.type
+                currentPlace?.imageData = newPlace.imageData
+            }
+        } else {
+            StorageManager.savePlace(newPlace)
+        }
     }
     
+    private func setUpEditScreen() {
+        if currentPlace != nil {
+            setUpNavigationBar()
+            isChangedImage = true
+            guard let data = currentPlace?.imageData, let imageDateConv = UIImage(data: data) else { return }
+            placeImage.image = imageDateConv
+            placeImage.contentMode = .scaleAspectFill
+            placeName.text = currentPlace?.name
+            placeLocation.text = currentPlace?.location
+            placeType.text = currentPlace?.type
+            
+        }
+    }
+    
+    private func setUpNavigationBar() {
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        navigationItem.leftBarButtonItem = nil
+        title = currentPlace?.name
+        saveButton.isEnabled = true
+    }
 }
+
+
 
 // MARK: Text field deligate
 
