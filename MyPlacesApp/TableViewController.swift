@@ -14,25 +14,46 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var reverseSortingButton: UIBarButtonItem!
     
-    var ascendingSorting = true
-    var places: Results<Place>!
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var filtredPlaces: Results<Place>!
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else {return false}
+        return text.isEmpty
+    }
+    
+    private var isFiltred: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    
+    private var ascendingSorting = true
+    private var places: Results<Place>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         places = realm.objects(Place.self)
         
+        //Setup search controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
     }
     
     // MARK: - Table view data source
     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltred {
+            return filtredPlaces.count
+        }
         return places.isEmpty ? 0 : places.count
     }
     
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCell
-        let place = places[indexPath.row]
+        let place = isFiltred ? filtredPlaces[indexPath.row] : places[indexPath.row]
         cell.nameLabel?.text = place.name
         cell.locationLabel.text = place.location
         cell.typeLabel.text = place.type
@@ -45,19 +66,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: - Table view deligate
     
     //varian for severals actions on trail swipe
-//    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let place = places[indexPath.row]
-//        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
-//            StorageManager.deletePlace(place)
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//        }
-//        return UISwipeActionsConfiguration(actions: [deleteAction])
-//    }
+    //    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    //        let place = places[indexPath.row]
+    //        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+    //            StorageManager.deletePlace(place)
+    //            tableView.deleteRows(at: [indexPath], with: .automatic)
+    //        }
+    //        return UISwipeActionsConfiguration(actions: [deleteAction])
+    //    }
     
     //simple variant for one action on swipe
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let place = places[indexPath.row]
+            let place = isFiltred ? filtredPlaces[indexPath.row] : places[indexPath.row]
             StorageManager.deletePlace(place)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -66,17 +87,17 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     //  MARK: - Navigation
-     
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "showDetail" {
-             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-             let place = places[indexPath.row]
-             let newPlaceVC = segue.destination as! NewPlaceVC
-             newPlaceVC.currentPlace = place
-         }
-     }
-     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let place = isFiltred ? filtredPlaces[indexPath.row] : places[indexPath.row]
+            let newPlaceVC = segue.destination as! NewPlaceVC
+            newPlaceVC.currentPlace = place
+        }
+    }
+    
     
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
@@ -109,4 +130,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
 }
 
+
+extension TableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        filtredPlaces = places.filter("name CONTAINS[c] %@ or location CONTAINS[c] %@", searchText, searchText)
+        tableView.reloadData()
+    }
+}
 
