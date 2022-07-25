@@ -11,6 +11,7 @@ import UIKit
     
     // MARK: Properties
     private var ratingButtons = [UIButton]()
+    var rating = 0
     
     @IBInspectable var starSize: CGSize = CGSize(width: 44, height: 44) {
         didSet {
@@ -23,8 +24,7 @@ import UIKit
         }
     }
     
-    var rating = 0
-    
+   
     // MARK: Inizialization
     
     override init(frame: CGRect) {
@@ -38,7 +38,7 @@ import UIKit
     }
     
     //MARK: Button action
-    @objc func retingButtonTapped(button: UIButton) {
+    @objc func ratingButtonTapped(button: UIButton) {
         print("Button pressed 👍")
     }
     
@@ -63,7 +63,7 @@ import UIKit
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
             
             //add actions for button
-            button.addTarget(self, action: #selector(retingButtonTapped(button:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(ratingButtonTapped(button:)), for: .touchUpInside)
             
             // add button to stack view
             addArrangedSubview(button)
