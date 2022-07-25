@@ -11,7 +11,11 @@ import UIKit
     
     // MARK: Properties
     private var ratingButtons = [UIButton]()
-    var rating = 0
+    var rating = 0 {
+        didSet {
+            updateButtonSelectionState()
+        }
+    }
     
     @IBInspectable var starSize: CGSize = CGSize(width: 44, height: 44) {
         didSet {
@@ -24,7 +28,7 @@ import UIKit
         }
     }
     
-   
+    
     // MARK: Inizialization
     
     override init(frame: CGRect) {
@@ -39,7 +43,11 @@ import UIKit
     
     //MARK: Button action
     @objc func ratingButtonTapped(button: UIButton) {
-        print("Button pressed 👍")
+        guard let index = ratingButtons.firstIndex(of: button) else { return }
+        
+        // Calculate rating
+        let selectRating = index + 1
+        rating = selectRating == rating ? 0 : selectRating
     }
     
     //MARK: private methods
@@ -52,10 +60,22 @@ import UIKit
         
         ratingButtons.removeAll()
         
+        // Load button image
+        let bundle = Bundle(for: type(of: self))
+        
+        let filledStar = UIImage(named: "filledStar", in: bundle, compatibleWith: self.traitCollection)
+        let emptyStar = UIImage(named: "emptyStar", in: bundle, compatibleWith: self.traitCollection)
+        let highlitedStar = UIImage(named: "highlitedStar", in: bundle, compatibleWith: self.traitCollection)
+        
         for _ in 0..<starCount {
             //create button
             let button = UIButton()
-            button.backgroundColor = .red
+            
+            // set button image
+            button.setImage(emptyStar, for: .normal)
+            button.setImage(filledStar, for: .selected)
+            button.setImage(highlitedStar, for: .highlighted)
+            button.setImage(highlitedStar, for: [.highlighted, .selected])
             
             //add constraint for button
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -70,8 +90,15 @@ import UIKit
             
             // add button to rating button array
             ratingButtons.append(button)
+            
+            updateButtonSelectionState()
         }
-        
-        
     }
+    
+    private func updateButtonSelectionState() {
+        for (index, button) in ratingButtons.enumerated() {
+            button.isSelected = index < rating
+        }
+    }
+    
 }
