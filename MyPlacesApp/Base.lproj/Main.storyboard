@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,6 +31,18 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo" translatesAutoresizingMaskIntoConstraints="NO" id="3nr-qc-Dbn">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTt-on-siK">
+                                                    <rect key="frame" x="344" y="200" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="Sgf-we-SlZ"/>
+                                                        <constraint firstAttribute="height" constant="50" id="u0b-XJ-xPZ"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="map"/>
+                                                    <connections>
+                                                        <segue destination="KVq-Qb-LaH" kind="presentation" identifier="showMap" id="dwe-vk-YWf"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -37,6 +50,8 @@
                                                 <constraint firstItem="3nr-qc-Dbn" firstAttribute="top" secondItem="nrl-7b-SJL" secondAttribute="top" id="Hd7-oP-ZoN"/>
                                                 <constraint firstItem="3nr-qc-Dbn" firstAttribute="leading" secondItem="nrl-7b-SJL" secondAttribute="leading" id="JjZ-qj-D8r"/>
                                                 <constraint firstAttribute="bottom" secondItem="3nr-qc-Dbn" secondAttribute="bottom" id="aDb-8m-kPx"/>
+                                                <constraint firstAttribute="bottom" secondItem="UTt-on-siK" secondAttribute="bottom" id="kB0-Eq-EjY"/>
+                                                <constraint firstAttribute="trailing" secondItem="UTt-on-siK" secondAttribute="trailing" constant="20" symbolic="YES" id="mUL-GM-Vla"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -204,6 +219,49 @@
                 <exit id="Fz5-WQ-bcF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="699" y="88"/>
+        </scene>
+        <!--MapVC-->
+        <scene sceneID="cxC-i4-H3c">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="KVq-Qb-LaH" customClass="MapVC" customModule="MyPlacesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mMq-d3-IhU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EPS-NT-jWY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV1-MD-DWh">
+                                <rect key="frame" x="344" y="84" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="61r-Ed-Qig"/>
+                                    <constraint firstAttribute="width" constant="30" id="dMC-dO-vOa"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePadding="0.0">
+                                    <imageReference key="image" image="xmark.app" catalog="system" symbolScale="large"/>
+                                    <color key="baseForegroundColor" systemColor="systemPinkColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="closeView" destination="KVq-Qb-LaH" eventType="touchUpInside" id="SA8-Es-sWp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sgz-7g-WSN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EPS-NT-jWY" firstAttribute="trailing" secondItem="Sgz-7g-WSN" secondAttribute="trailing" id="3wN-Ko-Ona"/>
+                            <constraint firstAttribute="bottom" secondItem="EPS-NT-jWY" secondAttribute="bottom" id="4ss-SC-da6"/>
+                            <constraint firstItem="EPS-NT-jWY" firstAttribute="leading" secondItem="Sgz-7g-WSN" secondAttribute="leading" id="Lwv-uy-em3"/>
+                            <constraint firstItem="Sgz-7g-WSN" firstAttribute="trailing" secondItem="wV1-MD-DWh" secondAttribute="trailing" constant="40" id="V9T-C6-sfx"/>
+                            <constraint firstItem="wV1-MD-DWh" firstAttribute="top" secondItem="Sgz-7g-WSN" secondAttribute="top" constant="40" id="Wrc-UZ-1HQ"/>
+                            <constraint firstItem="EPS-NT-jWY" firstAttribute="top" secondItem="mMq-d3-IhU" secondAttribute="top" id="hkF-93-NfQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="71E-ZF-OUv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1469.5652173913045" y="87.723214285714278"/>
         </scene>
         <!--My Places-->
         <scene sceneID="stG-p7-s3D">
@@ -379,8 +437,13 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="195" height="196"/>
+        <image name="map" width="50" height="50"/>
+        <image name="xmark.app" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
