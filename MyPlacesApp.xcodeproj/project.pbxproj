@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E91E5D29288EBBA900DA7AA0 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E5D28288EBBA900DA7AA0 /* RatingControl.swift */; };
 		E9528E682883FB2C00D8FEA2 /* NewPlaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9528E672883FB2C00D8FEA2 /* NewPlaceVC.swift */; };
 		E97775B728893DC20094FCC9 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97775B628893DC20094FCC9 /* StorageManager.swift */; };
 		E9AA4E95288082210068FC2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA4E94288082210068FC2F /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		241D70C4D4C3EA97A315F6F8 /* Pods-MyPlacesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlacesApp.debug.xcconfig"; path = "Target Support Files/Pods-MyPlacesApp/Pods-MyPlacesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E429D7EFC4B41752B3EFCB97 /* Pods-MyPlacesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlacesApp.release.xcconfig"; path = "Target Support Files/Pods-MyPlacesApp/Pods-MyPlacesApp.release.xcconfig"; sourceTree = "<group>"; };
+		E91E5D28288EBBA900DA7AA0 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		E9528E672883FB2C00D8FEA2 /* NewPlaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceVC.swift; sourceTree = "<group>"; };
 		E97775B628893DC20094FCC9 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		E9AA4E91288082210068FC2F /* MyPlacesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlacesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				E9528E672883FB2C00D8FEA2 /* NewPlaceVC.swift */,
 				E9AA4EAF2882B7BD0068FC2F /* PlaceModel.swift */,
 				E9AA4EAD2882AAC00068FC2F /* CustomCell.swift */,
+				E91E5D28288EBBA900DA7AA0 /* RatingControl.swift */,
 				E9AA4E96288082210068FC2F /* SceneDelegate.swift */,
 				E97775B628893DC20094FCC9 /* StorageManager.swift */,
 				E9AA4E9A288082210068FC2F /* Main.storyboard */,
@@ -226,6 +229,7 @@
 				E9AA4EA92880874F0068FC2F /* TableViewController.swift in Sources */,
 				E9AA4EB02882B7BD0068FC2F /* PlaceModel.swift in Sources */,
 				E97775B728893DC20094FCC9 /* StorageManager.swift in Sources */,
+				E91E5D29288EBBA900DA7AA0 /* RatingControl.swift in Sources */,
 				E9528E682883FB2C00D8FEA2 /* NewPlaceVC.swift in Sources */,
 				E9AA4EAE2882AAC00068FC2F /* CustomCell.swift in Sources */,
 				E9AA4E97288082210068FC2F /* SceneDelegate.swift in Sources */,

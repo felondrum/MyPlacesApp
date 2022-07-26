@@ -154,6 +154,23 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="140" id="h8c-wi-TcS">
+                                        <rect key="frame" x="0.0" y="519.5" width="414" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h8c-wi-TcS" id="PuW-wW-6lO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dVc-eA-fiY" customClass="RatingControl" customModule="MyPlacesApp" customModuleProvider="target">
+                                                    <rect key="frame" x="81" y="48" width="252" height="44"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dVc-eA-fiY" firstAttribute="centerX" secondItem="PuW-wW-6lO" secondAttribute="centerX" id="BEX-vr-idE"/>
+                                                <constraint firstItem="dVc-eA-fiY" firstAttribute="centerY" secondItem="PuW-wW-6lO" secondAttribute="centerY" id="swx-CM-5ZG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -179,6 +196,7 @@
                         <outlet property="placeLocation" destination="tcD-pj-iDY" id="6cu-7A-h8I"/>
                         <outlet property="placeName" destination="Ntl-6o-AbG" id="FKS-fu-aHB"/>
                         <outlet property="placeType" destination="WOf-7w-iRp" id="bqh-FZ-2xP"/>
+                        <outlet property="ratingControl" destination="dVc-eA-fiY" id="ERR-AV-BfZ"/>
                         <outlet property="saveButton" destination="870-K1-FXI" id="WYK-jb-Nq6"/>
                     </connections>
                 </tableViewController>
@@ -336,6 +354,11 @@
             <point key="canvasLocation" x="699" y="-567"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="dVc-eA-fiY">
+            <size key="intrinsicContentSize" width="252" height="44"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="K8L-gw-dSx"/>
     </inferredMetricsTieBreakers>

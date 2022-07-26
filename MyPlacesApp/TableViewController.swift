@@ -65,6 +65,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // MARK: - Table view deligate
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     //varian for severals actions on trail swipe
     //    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     //        let place = places[indexPath.row]
