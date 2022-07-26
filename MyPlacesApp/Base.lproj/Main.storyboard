@@ -233,35 +233,45 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Cib-vT-9cs">
-                                                    <rect key="frame" x="96" y="8" width="302" height="69"/>
+                                                    <rect key="frame" x="96" y="8" width="54.5" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGJ-tt-s7Y">
-                                                            <rect key="frame" x="0.0" y="0.0" width="302" height="24.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="54.5" height="24.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNH-Em-QK1">
-                                                            <rect key="frame" x="0.0" y="27.5" width="302" height="20"/>
+                                                            <rect key="frame" x="0.0" y="27.5" width="54.5" height="20"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNm-hg-v7g">
-                                                            <rect key="frame" x="0.0" y="50.5" width="302" height="18.5"/>
+                                                            <rect key="frame" x="0.0" y="50.5" width="54.5" height="18.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <stackView opaque="NO" contentMode="scaleAspectFit" placeholderIntrinsicWidth="120" placeholderIntrinsicHeight="20" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6nE-bT-r5u" customClass="RatingView" customModule="MyPlacesApp" customModuleProvider="target">
+                                                    <rect key="frame" x="250" y="32" width="120" height="20"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="6nE-bT-r5u" secondAttribute="trailing" constant="44" id="2tX-hA-XbM"/>
+                                                <constraint firstItem="6nE-bT-r5u" firstAttribute="top" secondItem="DHI-Er-h8u" secondAttribute="top" constant="32" id="NEn-6o-1Lu"/>
                                                 <constraint firstAttribute="bottom" secondItem="Cib-vT-9cs" secondAttribute="bottom" constant="8" id="OfJ-tN-M8y"/>
                                                 <constraint firstItem="Yx4-Lu-zkU" firstAttribute="centerY" secondItem="DHI-Er-h8u" secondAttribute="centerY" id="bTx-8y-YtG"/>
-                                                <constraint firstAttribute="trailing" secondItem="Cib-vT-9cs" secondAttribute="trailing" constant="16" id="dDi-K6-88j"/>
                                                 <constraint firstItem="Cib-vT-9cs" firstAttribute="leading" secondItem="Yx4-Lu-zkU" secondAttribute="trailing" constant="16" id="fR1-Zm-dt6"/>
                                                 <constraint firstItem="Cib-vT-9cs" firstAttribute="top" secondItem="DHI-Er-h8u" secondAttribute="top" constant="8" id="jvP-90-3Qq"/>
+                                                <constraint firstAttribute="bottom" secondItem="6nE-bT-r5u" secondAttribute="bottom" constant="33" id="tkk-GW-h7f"/>
                                                 <constraint firstItem="Yx4-Lu-zkU" firstAttribute="leading" secondItem="DHI-Er-h8u" secondAttribute="leading" constant="15" id="w7W-Kb-oBq"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -269,6 +279,7 @@
                                             <outlet property="imageOfPlace" destination="Yx4-Lu-zkU" id="EmA-bm-AA9"/>
                                             <outlet property="locationLabel" destination="iNH-Em-QK1" id="DPn-D4-AQf"/>
                                             <outlet property="nameLabel" destination="eGJ-tt-s7Y" id="Rre-Fu-a4B"/>
+                                            <outlet property="rating" destination="6nE-bT-r5u" id="w4A-EL-1mo"/>
                                             <outlet property="typeLabel" destination="HNm-hg-v7g" id="RJe-ky-aUI"/>
                                             <segue destination="bma-G8-In7" kind="show" identifier="showDetail" id="K8L-gw-dSx"/>
                                         </connections>
@@ -279,8 +290,8 @@
                                     <outlet property="delegate" destination="KZz-vg-xmh" id="FTW-TY-GBr"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="PxH-Kw-PFP">
-                                <rect key="frame" x="0.0" y="142" width="414" height="32"/>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" id="PxH-Kw-PFP">
+                                <rect key="frame" x="59" y="142" width="297" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Date"/>
@@ -355,6 +366,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="6nE-bT-r5u">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
         <designable name="dVc-eA-fiY">
             <size key="intrinsicContentSize" width="252" height="44"/>
         </designable>
