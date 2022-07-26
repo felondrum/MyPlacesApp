@@ -258,6 +258,9 @@
                             <constraint firstItem="EPS-NT-jWY" firstAttribute="top" secondItem="mMq-d3-IhU" secondAttribute="top" id="hkF-93-NfQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="EPS-NT-jWY" id="KyG-81-775"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71E-ZF-OUv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
