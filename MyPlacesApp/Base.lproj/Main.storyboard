@@ -213,17 +213,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="PxH-Kw-PFP">
-                                <rect key="frame" x="0.0" y="142" width="414" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Date"/>
-                                    <segment title="Name"/>
-                                </segments>
-                                <connections>
-                                    <action selector="sortSelection:" destination="KZz-vg-xmh" eventType="valueChanged" id="cN1-3r-u6U"/>
-                                </connections>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="HHY-wj-wfk">
                                 <rect key="frame" x="0.0" y="181" width="414" height="715"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,8 +255,8 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleAspectFit" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6nE-bT-r5u" customClass="RatingView" customModule="MyPlacesApp" customModuleProvider="target">
-                                                    <rect key="frame" x="250" y="32" width="80" height="20"/>
+                                                <stackView opaque="NO" contentMode="scaleAspectFit" placeholderIntrinsicWidth="120" placeholderIntrinsicHeight="20" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6nE-bT-r5u" customClass="RatingView" customModule="MyPlacesApp" customModuleProvider="target">
+                                                    <rect key="frame" x="250" y="32" width="120" height="20"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                             <integer key="value" value="5"/>
@@ -276,8 +265,7 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="6nE-bT-r5u" firstAttribute="leading" secondItem="DHI-Er-h8u" secondAttribute="leading" constant="250" id="2gX-6K-Ff9"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6nE-bT-r5u" secondAttribute="trailing" constant="44" id="2tX-hA-XbM"/>
+                                                <constraint firstAttribute="trailing" secondItem="6nE-bT-r5u" secondAttribute="trailing" constant="44" id="2tX-hA-XbM"/>
                                                 <constraint firstItem="6nE-bT-r5u" firstAttribute="top" secondItem="DHI-Er-h8u" secondAttribute="top" constant="32" id="NEn-6o-1Lu"/>
                                                 <constraint firstAttribute="bottom" secondItem="Cib-vT-9cs" secondAttribute="bottom" constant="8" id="OfJ-tN-M8y"/>
                                                 <constraint firstItem="Yx4-Lu-zkU" firstAttribute="centerY" secondItem="DHI-Er-h8u" secondAttribute="centerY" id="bTx-8y-YtG"/>
@@ -302,6 +290,17 @@
                                     <outlet property="delegate" destination="KZz-vg-xmh" id="FTW-TY-GBr"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" id="PxH-Kw-PFP">
+                                <rect key="frame" x="59" y="142" width="297" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Date"/>
+                                    <segment title="Name"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sortSelection:" destination="KZz-vg-xmh" eventType="valueChanged" id="cN1-3r-u6U"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fJL-fH-v8q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -367,6 +366,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="6nE-bT-r5u">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
         <designable name="dVc-eA-fiY">
             <size key="intrinsicContentSize" width="252" height="44"/>
         </designable>

@@ -11,7 +11,12 @@ class CustomCell: UITableViewCell {
 
     @IBOutlet weak var rating: RatingView!
     
-    @IBOutlet weak var imageOfPlace: UIImageView!
+    @IBOutlet weak var imageOfPlace: UIImageView! {
+        didSet {
+            imageOfPlace?.layer.cornerRadius = imageOfPlace.frame.size.height / 2
+            imageOfPlace?.clipsToBounds = true
+        }
+    }
     
     @IBOutlet weak var nameLabel: UILabel!
     

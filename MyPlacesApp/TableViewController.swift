@@ -59,8 +59,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.typeLabel.text = place.type
         cell.rating.rating = Int(place.rating)
         cell.imageOfPlace.image = UIImage(data: place.imageData!)
-        cell.imageOfPlace?.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
-        cell.imageOfPlace?.clipsToBounds = true
         return cell
     }
     
