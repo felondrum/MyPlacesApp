@@ -9,6 +9,8 @@ import UIKit
 
 class CustomCell: UITableViewCell {
 
+    @IBOutlet weak var rating: RatingView!
+    
     @IBOutlet weak var imageOfPlace: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!

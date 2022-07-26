@@ -36,13 +36,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
+        navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
     }
     
     // MARK: - Table view data source
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltred {
             return filtredPlaces.count
@@ -57,6 +57,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.nameLabel?.text = place.name
         cell.locationLabel.text = place.location
         cell.typeLabel.text = place.type
+        cell.rating.rating = Int(place.rating)
         cell.imageOfPlace.image = UIImage(data: place.imageData!)
         cell.imageOfPlace?.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         cell.imageOfPlace?.clipsToBounds = true
