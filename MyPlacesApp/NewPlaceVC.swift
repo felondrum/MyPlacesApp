@@ -67,26 +67,20 @@ class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
     
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "showMap" {
-            return
-        }
+        if segue.identifier != "showMap" { return }
         
         let mapVC = segue.destination as! MapVC
-        mapVC.place = currentPlace
+        mapVC.place.name = placeName.text!
+        mapVC.place.location = placeLocation.text
+        mapVC.place.type = placeType.text
+        mapVC.place.imageData = placeImage.image?.pngData()
     }
     
     
     func savePlace() {
         
-        var image: UIImage?
-        
-        if isChangedImage {
-            image = placeImage.image
-        } else {
-            image = #imageLiteral(resourceName: "imagePlaceholder")
-        }
+        let image = isChangedImage ? placeImage.image : #imageLiteral(resourceName: "imagePlaceholder")
         let imageDateConv = image?.pngData()
-        
         let newPlace = Place(name: placeName.text!,
                              location: placeLocation.text,
                              type: placeType.text,
