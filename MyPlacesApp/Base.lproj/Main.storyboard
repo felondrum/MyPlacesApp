@@ -246,6 +246,20 @@
                                     <action selector="closeView" destination="KVq-Qb-LaH" eventType="touchUpInside" id="SA8-Es-sWp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkQ-CW-vIc">
+                                <rect key="frame" x="334" y="816" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Sg7-9V-nIH"/>
+                                    <constraint firstAttribute="width" constant="40" id="r8y-gj-IdU"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="location.circle.fill" catalog="system" symbolScale="default"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="centerViewInUserLocation" destination="KVq-Qb-LaH" eventType="touchUpInside" id="d8R-DW-wck"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sgz-7g-WSN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -253,8 +267,10 @@
                             <constraint firstItem="EPS-NT-jWY" firstAttribute="trailing" secondItem="Sgz-7g-WSN" secondAttribute="trailing" id="3wN-Ko-Ona"/>
                             <constraint firstAttribute="bottom" secondItem="EPS-NT-jWY" secondAttribute="bottom" id="4ss-SC-da6"/>
                             <constraint firstItem="EPS-NT-jWY" firstAttribute="leading" secondItem="Sgz-7g-WSN" secondAttribute="leading" id="Lwv-uy-em3"/>
+                            <constraint firstItem="hkQ-CW-vIc" firstAttribute="bottom" secondItem="EPS-NT-jWY" secondAttribute="bottom" constant="-40" id="OaQ-Ru-DrA"/>
                             <constraint firstItem="Sgz-7g-WSN" firstAttribute="trailing" secondItem="wV1-MD-DWh" secondAttribute="trailing" constant="40" id="V9T-C6-sfx"/>
                             <constraint firstItem="wV1-MD-DWh" firstAttribute="top" secondItem="Sgz-7g-WSN" secondAttribute="top" constant="40" id="Wrc-UZ-1HQ"/>
+                            <constraint firstItem="Sgz-7g-WSN" firstAttribute="trailing" secondItem="hkQ-CW-vIc" secondAttribute="trailing" constant="40" id="awK-nX-RYL"/>
                             <constraint firstItem="EPS-NT-jWY" firstAttribute="top" secondItem="mMq-d3-IhU" secondAttribute="top" id="hkF-93-NfQ"/>
                         </constraints>
                     </view>
@@ -440,6 +456,7 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="195" height="196"/>
+        <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <image name="map" width="50" height="50"/>
         <image name="xmark.app" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">

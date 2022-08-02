@@ -16,6 +16,7 @@ class MapVC: UIViewController {
     var place = Place()
     let annotationIdentifier = "annotationIdentifier"
     let locationManager = CLLocationManager()
+    let regionInMeters = 10000.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +99,13 @@ class MapVC: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+
+    @IBAction func centerViewInUserLocation() {
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+            mapView.setRegion(region, animated: true)
+        }
+    }
     
 }
 
