@@ -298,12 +298,25 @@
                                     <action selector="doneButtonPressed" destination="KVq-Qb-LaH" eventType="touchUpInside" id="0jQ-nb-s1M"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWf-cu-BIL">
+                                <rect key="frame" x="182" y="806" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="W5l-zu-Bn5"/>
+                                    <constraint firstAttribute="width" constant="50" id="ynG-WJ-8RS"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="figure.walk" catalog="system"/>
+                                <connections>
+                                    <action selector="goButtonPressed" destination="KVq-Qb-LaH" eventType="touchUpInside" id="oCJ-er-OC9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sgz-7g-WSN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EPS-NT-jWY" firstAttribute="trailing" secondItem="Sgz-7g-WSN" secondAttribute="trailing" id="3wN-Ko-Ona"/>
                             <constraint firstAttribute="bottom" secondItem="EPS-NT-jWY" secondAttribute="bottom" id="4ss-SC-da6"/>
+                            <constraint firstAttribute="bottom" secondItem="ZWf-cu-BIL" secondAttribute="bottom" constant="40" id="DqA-eS-x4I"/>
                             <constraint firstItem="fgZ-4D-EY0" firstAttribute="centerX" secondItem="mMq-d3-IhU" secondAttribute="centerX" id="GqR-B4-YQ7"/>
                             <constraint firstItem="fgZ-4D-EY0" firstAttribute="centerY" secondItem="mMq-d3-IhU" secondAttribute="centerY" constant="-20" id="IdI-q2-m2z"/>
                             <constraint firstItem="EPS-NT-jWY" firstAttribute="leading" secondItem="Sgz-7g-WSN" secondAttribute="leading" id="Lwv-uy-em3"/>
@@ -314,12 +327,14 @@
                             <constraint firstItem="Sgz-7g-WSN" firstAttribute="trailing" secondItem="WHm-Qu-mq7" secondAttribute="trailing" constant="20" id="dMw-GZ-jvI"/>
                             <constraint firstItem="EPS-NT-jWY" firstAttribute="top" secondItem="WHm-Qu-mq7" secondAttribute="bottom" constant="-240" id="e9I-5y-DWU"/>
                             <constraint firstItem="EPS-NT-jWY" firstAttribute="top" secondItem="mMq-d3-IhU" secondAttribute="top" id="hkF-93-NfQ"/>
+                            <constraint firstItem="ZWf-cu-BIL" firstAttribute="centerX" secondItem="mMq-d3-IhU" secondAttribute="centerX" id="iWE-eW-dOL"/>
                             <constraint firstItem="WHm-Qu-mq7" firstAttribute="leading" secondItem="Sgz-7g-WSN" secondAttribute="leading" constant="20" id="r8W-lu-zii"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="WHm-Qu-mq7" id="hFu-Wc-80k"/>
                         <outlet property="doneButton" destination="SuP-ks-4nn" id="Qkp-Mk-HVA"/>
+                        <outlet property="goButton" destination="ZWf-cu-BIL" id="ddy-MR-vRi"/>
                         <outlet property="mapPinConnect" destination="fgZ-4D-EY0" id="cN6-ji-qRw"/>
                         <outlet property="mapView" destination="EPS-NT-jWY" id="KyG-81-775"/>
                     </connections>
@@ -503,6 +518,7 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="195" height="196"/>
+        <image name="figure.walk" catalog="system" width="95" height="128"/>
         <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <image name="map" width="50" height="50"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
