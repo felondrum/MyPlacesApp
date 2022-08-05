@@ -77,6 +77,56 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E96B36CB289D3418005D1D05 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E91E5D2C2890223400DA7AA0 /* MapVC.swift */,
+				E9AA4EA82880874F0068FC2F /* TableViewController.swift */,
+				E9528E672883FB2C00D8FEA2 /* NewPlaceVC.swift */,
+				E9AA4EAD2882AAC00068FC2F /* CustomCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E96B36CC289D3458005D1D05 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E9AA4EAF2882B7BD0068FC2F /* PlaceModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E96B36CD289D3466005D1D05 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E91E5D2A288FE6F400DA7AA0 /* RatingView.swift */,
+				E96B36C9289D0FBE005D1D05 /* MapManager.swift */,
+				E97775B628893DC20094FCC9 /* StorageManager.swift */,
+				E91E5D28288EBBA900DA7AA0 /* RatingControl.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E96B36CE289D347A005D1D05 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E9AA4EA2288082240068FC2F /* Info.plist */,
+				E9AA4E9D288082240068FC2F /* Assets.xcassets */,
+				E9AA4E94288082210068FC2F /* AppDelegate.swift */,
+				E9AA4E96288082210068FC2F /* SceneDelegate.swift */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		E96B36CF289D3549005D1D05 /* IBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				E9AA4E9A288082210068FC2F /* Main.storyboard */,
+				E9AA4E9F288082240068FC2F /* LaunchScreen.storyboard */,
+			);
+			path = IBuilder;
+			sourceTree = "<group>";
+		};
 		E9AA4E88288082210068FC2F = {
 			isa = PBXGroup;
 			children = (
@@ -99,21 +149,11 @@
 		E9AA4E93288082210068FC2F /* MyPlacesApp */ = {
 			isa = PBXGroup;
 			children = (
-				E9AA4E94288082210068FC2F /* AppDelegate.swift */,
-				E9AA4EA82880874F0068FC2F /* TableViewController.swift */,
-				E9528E672883FB2C00D8FEA2 /* NewPlaceVC.swift */,
-				E91E5D2C2890223400DA7AA0 /* MapVC.swift */,
-				E96B36C9289D0FBE005D1D05 /* MapManager.swift */,
-				E9AA4EAF2882B7BD0068FC2F /* PlaceModel.swift */,
-				E9AA4EAD2882AAC00068FC2F /* CustomCell.swift */,
-				E91E5D28288EBBA900DA7AA0 /* RatingControl.swift */,
-				E91E5D2A288FE6F400DA7AA0 /* RatingView.swift */,
-				E9AA4E96288082210068FC2F /* SceneDelegate.swift */,
-				E97775B628893DC20094FCC9 /* StorageManager.swift */,
-				E9AA4E9A288082210068FC2F /* Main.storyboard */,
-				E9AA4E9D288082240068FC2F /* Assets.xcassets */,
-				E9AA4E9F288082240068FC2F /* LaunchScreen.storyboard */,
-				E9AA4EA2288082240068FC2F /* Info.plist */,
+				E96B36CB289D3418005D1D05 /* ViewControllers */,
+				E96B36CD289D3466005D1D05 /* Helpers */,
+				E96B36CC289D3458005D1D05 /* Models */,
+				E96B36CE289D347A005D1D05 /* SupportFiles */,
+				E96B36CF289D3549005D1D05 /* IBuilder */,
 			);
 			path = MyPlacesApp;
 			sourceTree = "<group>";
@@ -394,7 +434,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T7V59D54TD;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyPlacesApp/Info.plist;
+				INFOPLIST_FILE = MyPlacesApp/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -423,7 +463,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T7V59D54TD;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyPlacesApp/Info.plist;
+				INFOPLIST_FILE = MyPlacesApp/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
