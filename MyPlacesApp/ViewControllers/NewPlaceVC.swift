@@ -63,21 +63,30 @@ class NewPlaceVC: UITableViewController, UINavigationControllerDelegate {
         } else {
             view.endEditing(true)
         }
-        
-        
     }
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let identifier = segue.identifier,
+              let mapVC = segue.destination as? MapVC
+        else { return }
+        mapVC.incomeSegueIdentifier = identifier
+        mapVC.mapVCDelegate = self
+        
+        if identifier == "showMap" {
+            mapVC.place.name = placeName.text!
+            mapVC.place.location = placeLocation.text
+            mapVC.place.type = placeType.text
+            mapVC.place.imageData = placeImage.image?.pngData()
+        }
+    }
+    
     
     func savePlace() {
         
-        var image: UIImage?
-        
-        if isChangedImage {
-            image = placeImage.image
-        } else {
-            image = #imageLiteral(resourceName: "imagePlaceholder")
-        }
+        let image = isChangedImage ? placeImage.image : #imageLiteral(resourceName: "imagePlaceholder")
         let imageDateConv = image?.pngData()
-        
         let newPlace = Place(name: placeName.text!,
                              location: placeLocation.text,
                              type: placeType.text,
@@ -162,3 +171,13 @@ extension NewPlaceVC: UIImagePickerControllerDelegate {
     }
     
 }
+
+
+extension NewPlaceVC: MapVCDelegate {
+    func getAddress(_ address: String?) {
+        placeLocation.text = address
+    }
+    
+    
+}
+
